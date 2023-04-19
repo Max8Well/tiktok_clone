@@ -2,12 +2,19 @@ import 'package:flutter/material.dart';
 import '../../../constants/sizes.dart';
 
 class FormButton extends StatelessWidget {
+  final bool disabled;
+  final String? text;
+
   const FormButton({
     super.key,
     required this.disabled,
+    this.text,
   });
 
-  final bool disabled;
+  bool _textValid() {
+    if (text == null) return false;
+    return true;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +39,8 @@ class FormButton extends StatelessWidget {
             fontWeight: FontWeight.w600,
           ),
           duration: const Duration(milliseconds: 300),
-          child: const Text(
-            'Next',
+          child: Text(
+            _textValid() ? text! : 'Next',
             textAlign: TextAlign.center,
           ),
         ),
