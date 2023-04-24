@@ -10,12 +10,14 @@ class NavTap extends StatelessWidget {
     required this.icon,
     required this.onTap,
     required this.selectedIcon,
+    required this.selectedIndex,
   });
 
   final String text;
   final bool isSelected;
   final IconData icon;
   final IconData selectedIcon;
+  final int selectedIndex;
 
   final Function onTap;
 
@@ -26,7 +28,7 @@ class NavTap extends StatelessWidget {
         onTap: () => onTap(),
         // Container 를 color 로 채워야 아이콘 선택 영역이 넓어짐
         child: Container(
-          color: Colors.black,
+          color: selectedIndex == 0 ? Colors.black : Colors.white,
           child: AnimatedOpacity(
             opacity: isSelected ? 1 : 0.6,
             duration: const Duration(milliseconds: 300),
@@ -35,12 +37,14 @@ class NavTap extends StatelessWidget {
               children: [
                 FaIcon(
                   isSelected ? selectedIcon : icon,
-                  color: Colors.white,
+                  color: selectedIndex == 0 ? Colors.white : Colors.black,
                 ),
                 Gaps.v5,
                 Text(
                   text,
-                  style: const TextStyle(color: Colors.white),
+                  style: TextStyle(
+                    color: selectedIndex == 0 ? Colors.white : Colors.black,
+                  ),
                 ),
               ],
             ),

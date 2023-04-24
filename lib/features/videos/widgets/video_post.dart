@@ -87,6 +87,17 @@ class _VideoPostState extends State<VideoPost>
     super.dispose();
   }
 
+  _onVisibilityChanged(VisibilityInfo info) {
+    if (info.visibleFraction == 1 &&
+        !_isPaused &&
+        !_videoPlayerController.value.isPlaying) {
+      _videoPlayerController.play();
+    }
+    if (_videoPlayerController.value.isPlaying && info.visibleFraction == 0) {
+      _onTogglePause();
+    }
+  }
+
   //토글시 멈춤
   void _onTogglePause() {
     if (_videoPlayerController.value.isPlaying) {
@@ -120,7 +131,7 @@ class _VideoPostState extends State<VideoPost>
   Widget build(BuildContext context) {
     return VisibilityDetector(
       key: Key("${widget.index}"),
-      onVisibilityChanged: (info) {},
+      onVisibilityChanged: _onVisibilityChanged,
       child: Stack(
         children: [
           // 영상 재생
