@@ -20,7 +20,6 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
           horizontalTitleGap: Sizes.size5,
           leading: CircleAvatar(
             radius: Sizes.size24,
-            foregroundImage: NetworkImage("url"),
             child: Text("HS"),
           ),
           title: Text(
