@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
@@ -62,6 +63,10 @@ class _VideoPostState extends State<VideoPost>
     await _videoPlayerController.initialize();
     //비디오 재생 반복
     _videoPlayerController.setLooping(true);
+    //웹에서 음량있는 비디오 영상을 반복재생하면 불법이므로 소리를 0으로 해줘야 에러 안난다
+    if (kIsWeb) {
+      await _videoPlayerController.setVolume(0);
+    }
     _videoPlayerController.play();
     setState(() {});
     _videoPlayerController.addListener(_onVideoChange);
