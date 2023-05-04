@@ -30,7 +30,6 @@ class SignUpScreen extends StatelessWidget {
     //반응형 만들기
     return OrientationBuilder(
       builder: (context, orientation) {
-        print(orientation);
         return Scaffold(
           body: SafeArea(
             child: Padding(
@@ -40,19 +39,18 @@ class SignUpScreen extends StatelessWidget {
                   Gaps.v80,
                   const Text(
                     'Sign up for TikTok',
-                    style: TextStyle(
-                      fontSize: Sizes.size28,
-                      fontWeight: FontWeight.w600,
-                    ),
+                    style: TextStyle(fontSize: Sizes.size32),
                   ),
                   Gaps.v20,
-                  const Text(
-                    'Create a profile, follow other accounts, make your own videos, and more.',
-                    style: TextStyle(
-                      fontSize: Sizes.size16,
-                      color: Colors.black45,
+                  const Opacity(
+                    opacity: 0.5,
+                    child: Text(
+                      'Create a profile, follow other accounts, make your own videos, and more.',
+                      style: TextStyle(
+                        fontSize: Sizes.size16,
+                      ),
+                      textAlign: TextAlign.center,
                     ),
-                    textAlign: TextAlign.center,
                   ),
                   Gaps.v40,
                   GestureDetector(
@@ -70,8 +68,7 @@ class SignUpScreen extends StatelessWidget {
             ),
           ),
           bottomNavigationBar: BottomAppBar(
-            color: Colors.grey.shade50,
-            elevation: 1,
+            elevation: 2,
             child: Padding(
               padding: const EdgeInsets.symmetric(
                 vertical: Sizes.size14,

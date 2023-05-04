@@ -42,9 +42,8 @@ class _VideoCommentsState extends State<VideoComments> {
       ),
       child: Scaffold(
         resizeToAvoidBottomInset: true,
-        backgroundColor: Colors.grey.shade50,
         appBar: AppBar(
-          backgroundColor: Colors.grey.shade50,
+          backgroundColor: Colors.grey.shade500,
           automaticallyImplyLeading: false,
           title: const Text("22796 comments"),
           actions: [
@@ -122,7 +121,6 @@ class _VideoCommentsState extends State<VideoComments> {
                 width: size,
                 bottom: 0,
                 child: BottomAppBar(
-                  color: Colors.white,
                   child: Padding(
                     padding: const EdgeInsets.only(
                       left: Sizes.size16,

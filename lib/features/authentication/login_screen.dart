@@ -35,11 +35,11 @@ class LoginScreen extends StatelessWidget {
           child: Column(
             children: [
               Gaps.v80,
-              const Text(
-                'Log in to TikTok',
-                style: TextStyle(
-                  fontSize: Sizes.size28,
-                  fontWeight: FontWeight.w600,
+              const Opacity(
+                opacity: 0.5,
+                child: Text(
+                  'Log in to TikTok',
+                  style: TextStyle(fontSize: Sizes.size32),
                 ),
               ),
               Gaps.v20,
@@ -47,7 +47,6 @@ class LoginScreen extends StatelessWidget {
                 'Create a profile, follow other accounts, make your own videos, and more.',
                 style: TextStyle(
                   fontSize: Sizes.size16,
-                  color: Colors.black45,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -67,7 +66,6 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomAppBar(
-        color: Colors.grey.shade50,
         elevation: 1,
         child: Padding(
           padding: const EdgeInsets.symmetric(
