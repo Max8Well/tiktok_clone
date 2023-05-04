@@ -2,27 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
-import 'package:tiktok_clone/features/authentication/login_screen.dart';
-import 'package:tiktok_clone/features/authentication/username_screen.dart';
 import 'package:tiktok_clone/features/authentication/widgets/auth_button.dart';
 
 class SignUpScreen extends StatelessWidget {
+  static String routeName = "/";
   const SignUpScreen({super.key});
 
-  void onLoginTap(BuildContext context) {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) => const LoginScreen(),
-      ),
-    );
+  void _onLoginTap(BuildContext context) {
+    // Navigator.of(context).push(
+    //   MaterialPageRoute(
+    //     builder: (context) => const LoginScreen(),
+    //   ),
+    // );
+    Navigator.of(context).pushNamed("/login");
   }
 
-  void onEmailTap(BuildContext context) {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) => const UsernameScreen(),
-      ),
-    );
+  void _onEmailTap(BuildContext context) {
+    // Navigator.of(context).push(
+    //   MaterialPageRoute(
+    //     builder: (context) => const UsernameScreen(),
+    //   ),
+    // );
+    Navigator.of(context).pushNamed("/username");
   }
 
   @override
@@ -54,7 +55,7 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   Gaps.v40,
                   GestureDetector(
-                    onTap: () => onEmailTap(context),
+                    onTap: () => _onEmailTap(context),
                     child: const AuthButton(
                         icon: FaIcon(FontAwesomeIcons.user),
                         text: "Use email & password"),
@@ -79,7 +80,7 @@ class SignUpScreen extends StatelessWidget {
                   const Text('Already have an account?'),
                   Gaps.h5,
                   GestureDetector(
-                    onTap: () => onLoginTap(context),
+                    onTap: () => _onLoginTap(context),
                     child: Text(
                       'Log in',
                       style: TextStyle(
