@@ -4,6 +4,8 @@ import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 
 class ActivityScreen extends StatefulWidget {
+  static String routeURL = "/activity";
+  static String routeName = "activity";
   const ActivityScreen({super.key});
 
   @override
@@ -214,11 +216,11 @@ class _ActivityScreenState extends State<ActivityScreen>
             position: _panelAnimation,
             child: Container(
               decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(Sizes.size4),
-                  bottomRight: Radius.circular(Sizes.size4),
-                ),
-              ),
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(Sizes.size4),
+                    bottomRight: Radius.circular(Sizes.size4),
+                  ),
+                  color: Colors.white),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [

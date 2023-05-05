@@ -3,8 +3,12 @@ import 'package:tiktok_clone/common/widgets/main_navigation/main_navigation_scre
 import 'package:tiktok_clone/features/authentication/login_screen.dart';
 import 'package:tiktok_clone/features/authentication/sign_up_screen.dart';
 import 'package:tiktok_clone/features/onboarding/interests_screen.dart';
+import 'package:tiktok_clone/features/videos/inbox/activity_screen.dart';
+import 'package:tiktok_clone/features/videos/inbox/chat_detail_screen.dart';
+import 'package:tiktok_clone/features/videos/inbox/chats_screen.dart';
 
 final router = GoRouter(
+  initialLocation: "/inbox",
   routes: [
     GoRoute(
       name: SignUpScreen.routeName,
@@ -29,5 +33,26 @@ final router = GoRouter(
         return MainNavigationScreen(tab: tab);
       },
     ),
+    GoRoute(
+      name: ActivityScreen.routeName,
+      path: ActivityScreen.routeURL,
+      builder: (context, state) => const ActivityScreen(),
+    ),
+    GoRoute(
+        name: ChatsScreen.routeName,
+        path: ChatsScreen.routeURL,
+        builder: (context, state) => const ChatsScreen(),
+        routes: [
+          GoRoute(
+            name: ChatDetailScreen.routeName,
+            path: ChatDetailScreen.routeURL,
+            builder: (context, state) {
+              final chatId = state.params["chatId"]!;
+              return ChatDetailScreen(
+                chatID: chatId,
+              );
+            },
+          )
+        ]),
   ],
 );
